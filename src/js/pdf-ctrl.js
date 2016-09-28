@@ -26,6 +26,13 @@ angular.module('pdf')
 
     var ctx = canvas.getContext('2d');
 
+    var ew = canvas.width;
+    var eh = canvas.height;
+
+    console.log('width', ew);
+    console.log('height', eh);
+
+
     var renderPage = function(num) {
       if (!angular.isNumber(num))
         num = parseInt(num);
@@ -33,8 +40,11 @@ angular.module('pdf')
         .getPage(num)
         .then(function(page) {
           var viewport = page.getViewport(scale);
+
           // canvas.height = viewport.height;
-          // canvas.width = viewport.width;
+          var adjustedScale = ew / viewport.width;
+
+          viewport = page.getViewport(adjustedScale);
 
           var renderContext = {
             canvasContext: ctx,
