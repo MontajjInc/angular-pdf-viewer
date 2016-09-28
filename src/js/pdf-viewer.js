@@ -6,7 +6,7 @@ angular.module('pdf')
   function($window, $log, pdfDelegate) {
     return {
       restrict: 'E',
-      template: '<pdf-viewer-toolbar ng-if="showToolbar" delegate-handle="id" page-count="pageCount"></pdf-viewer-toolbar><canvas></canvas>',
+      template: '<pdf-viewer-toolbar ng-if="showToolbar" delegate-handle="{{id}}" page-count="pageCount"></pdf-viewer-toolbar><canvas></canvas>',
       scope: {
         delegateHandle: '@',
         pageCount: '@'
@@ -16,6 +16,7 @@ angular.module('pdf')
         scope.id = scope.delegateHandle;
         console.log('pdfViewer id: ', scope.id);
         scope.showToolbar = scope.$eval(attrs.showToolbar) || false;
+        console.log('attrs', attrs);
       }
     };
 }]);

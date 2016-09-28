@@ -16,6 +16,7 @@ angular.module('pdf')
     var self = this;
 
     var url = $scope.$eval($attrs.url);
+    console.log('url', url);
     var headers = $scope.$eval($attrs.headers);
     var pdfDoc;
     $scope.pageCount = 0;
@@ -23,6 +24,9 @@ angular.module('pdf')
     var angle = 0;
     var scale = $attrs.scale ? $attrs.scale : 1;
     var canvas = $element.find('canvas')[0];
+    if (canvas) {
+      console.log('canvas');
+    }
     var ctx = canvas.getContext('2d');
 
     var renderPage = function(num) {
