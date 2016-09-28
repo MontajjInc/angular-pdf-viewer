@@ -33,8 +33,8 @@ angular.module('pdf')
         .getPage(num)
         .then(function(page) {
           var viewport = page.getViewport(scale);
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
+          // canvas.height = viewport.height;
+          // canvas.width = viewport.width;
 
           var renderContext = {
             canvasContext: ctx,
