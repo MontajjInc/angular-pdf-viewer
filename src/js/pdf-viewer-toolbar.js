@@ -34,9 +34,12 @@ angular.module('pdf')
             ' / {{pageCount}}' +
           '</div>' +
         '</div>',
-      scope: { pageCount: '=' },
+      scope: {
+        pageCount: '=',
+        delegateHandle: '@',
+      },
       link: function(scope, element, attrs) {
-        var id = attrs.delegateHandle;
+        var id = scope.delegateHandle;
         console.log('pdfViewer Toolbar ID: ', id);
         scope.currentPage = 1;
 

@@ -7,12 +7,13 @@ angular.module('pdf')
     return {
       restrict: 'E',
       template: '<pdf-viewer-toolbar ng-if="showToolbar" delegate-handle="{{id}}" page-count="pageCount"></pdf-viewer-toolbar><canvas></canvas>',
-      scope: true,
-      delegateHandle: '@',
+      scope: {
+        delegateHandle: '@',
+      } ,
       controller: 'PdfCtrl',
       link: function(scope, element, attrs) {
         scope.id = scope.delegateHandle;
-        console.log('pdfViewer id: ', scope.id);
+        console.log('pdfViewer id: ', scope.delegateHandle);
         scope.showToolbar = scope.$eval(attrs.showToolbar) || false;
       }
     };
