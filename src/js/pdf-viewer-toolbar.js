@@ -36,7 +36,7 @@ angular.module('pdf')
         '</div>',
       scope: {
         pageCount: '=',
-        delegateHandle: '@',
+        delegateHandle: '@'
       },
       link: function(scope, element, attrs) {
         var id = scope.delegateHandle;
