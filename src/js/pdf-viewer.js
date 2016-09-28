@@ -9,7 +9,8 @@ angular.module('pdf')
       template: '<pdf-viewer-toolbar ng-if="showToolbar" delegate-handle="{{id}}" page-count="pageCount"></pdf-viewer-toolbar><canvas></canvas>',
       scope: {
         delegateHandle: '@',
-        pageCount: '@'
+        pageCount: '@',
+        url: '@'
       } ,
       controller: 'PdfCtrl',
       link: function(scope, element, attrs) {

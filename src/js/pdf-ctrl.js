@@ -15,7 +15,7 @@ angular.module('pdf')
 
     var self = this;
 
-    var url = $scope.$eval($attrs.url);
+    var url = $scope.url;
     console.log('url', url);
     var headers = $scope.$eval($attrs.headers);
     var pdfDoc;
