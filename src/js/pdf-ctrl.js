@@ -39,10 +39,10 @@ angular.module('pdf')
       pdfDoc
         .getPage(num)
         .then(function(page) {
-          var viewport = page.getViewport(scale);
+          var viewport = page.getViewport(1);
 
           // canvas.height = viewport.height;
-          var adjustedScale = ew / viewport.width;
+          var adjustedScale = (ew / viewport.width) * scale;
 
           viewport = page.getViewport(adjustedScale);
 
