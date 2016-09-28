@@ -76,8 +76,7 @@ angular.module('pdf')
 
     self.zoomOut = function(amount) {
       amount = amount || 0.2;
-      scale = parseFloat(scale) - amount;
-      console.log('scale', scale);
+      scale = Number((parseFloat(scale) - amount).toFixed((1)));
       scale = (scale > 0) ? scale : 0.1;
       renderPage(currentPage);
       return scale;
