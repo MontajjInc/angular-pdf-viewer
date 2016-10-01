@@ -29,8 +29,8 @@ angular.module('pdf')
     var ew = canvas.width;
     var eh = canvas.height;
 
-    console.log('width', ew);
-    console.log('height', eh);
+    console.log('width:', ew);
+    console.log('height:', eh);
 
 
     var renderPage = function(num) {
@@ -39,10 +39,10 @@ angular.module('pdf')
       pdfDoc
         .getPage(num)
         .then(function(page) {
-          var viewport = page.getViewport(scale);
+          var unscaledViewport = page.getViewport(scale);
 
           // canvas.height = viewport.height;
-          var adjustedScale = (ew / viewport.width) * scale;
+          var adjustedScale = Math.min((eh / unscaledViewport.height),(ew / unscaledViewport.width));
 
           viewport = page.getViewport(adjustedScale);
 
